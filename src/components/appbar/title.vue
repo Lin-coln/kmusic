@@ -1,6 +1,6 @@
 <template>
     <div class="appbar-title" :style="style">
-        卧槽!!
+        {{$store.state.appbarTitle}}
     </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
 
         style(){
             var index = this.getAppbarStatusIndex
+            
             return {
                 width: ['50vh', '200px'][index],
                 height: ['80px','68px'][index],
@@ -27,7 +28,7 @@ export default {
 .appbar-title{
     transition: all 300ms ease-in-out;
 
-    background-color: rgba(255, 0, 0, 0.2);
+    // background-color: rgba(255, 0, 0, 0.2);
 
     display: flex;
     justify-content: flex-start;

@@ -1,6 +1,6 @@
 <template>
     <div class="drawerbar-profile">
-        XXMusic
+        K-Music
     </div>
 </template>
 

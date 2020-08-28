@@ -1,9 +1,9 @@
 
-const   EXPLORE     = 'EXPLORE',
-        CLOUD       = 'CLOUD',
-        LOCAL       = 'LOCAL',
-        PLAYLIST    = 'PLAYLIST',
-        FAVORITE    = 'FAVORITE'
+const   EXPLORE     = 'Explore',
+        CLOUD       = 'Cloud',
+        LOCAL       = 'Local',
+        PLAYLIST    = 'Playlist',
+        FAVORITE    = 'Favorite'
 const pageArray = [EXPLORE, CLOUD, LOCAL, PLAYLIST, FAVORITE]
 
 const getPageByIndex = (index)=>{
@@ -29,6 +29,8 @@ getters:{
 mutations:{
     setCurrentPageByIndex(state, index){
         state.currentPage = getPageByIndex(index)
+
+        state.appbarTitle = state.currentPage
         router.replace(state.currentPage.toLowerCase())
     },
 },

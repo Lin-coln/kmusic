@@ -2,10 +2,10 @@
   <div id="app">
     <WinButton showSetting showMaximize />
 
-    <overlap-layout :zIndex='20'>
+    <!-- <overlap-layout :zIndex='20'>
       <toggler 
         @handleSwitch="handleSwitch"/>
-    </overlap-layout>
+    </overlap-layout> -->
 
 
     <appbar/>

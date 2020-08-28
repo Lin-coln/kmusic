@@ -22,7 +22,7 @@ export default {
 .appbar-navbtn{
     transition: all 300ms ease-in-out;
 
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(0, 255, 0, 0.05);
 
     display: flex;
     justify-content: center;

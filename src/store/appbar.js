@@ -12,7 +12,8 @@ return statusArray.indexOf(status)
 
 const config = {
 state:{
-    appbarStatus: NORMAL
+    appbarStatus: MINI,
+    appbarTitle: "Explore"
 },
 getters:{
     getAppbarStatusIndex(state){
@@ -23,6 +24,9 @@ mutations:{
     changeAppbarStatus(state){
         let curIndex = getIndexByStatus(state.appbarStatus)
         state.appbarStatus = getStatusByIndex(curIndex+1)
+    },
+    setAppbarTitle(state, title){
+        state.appbarTitle = title
     }
 },
 actions:{
