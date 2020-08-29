@@ -8,7 +8,7 @@ export default {
         },
         icon(){
             return 'cloud'
-        }
+        },
     }
 }
 </script>

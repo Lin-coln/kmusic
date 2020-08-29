@@ -51,7 +51,7 @@ export default {
     align-items: center;
     position: absolute;
 
-    backdrop-filter: blur(10px) brightness(2);
+    backdrop-filter: blur(30px) brightness(2);
 }
 
 </style>
