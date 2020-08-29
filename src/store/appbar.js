@@ -10,20 +10,36 @@ const getIndexByStatus = (status)=>{
 return statusArray.indexOf(status)
 }
 
+const   LIGHT = "LIGHT",
+        DARK = "DARK"
+const   titleThemeArray = [LIGHT, DARK]
+const getTitleThemeByIndex = (index)=>{
+    return  titleThemeArray[index%(titleThemeArray.length)]   
+}
+const getIndexByTitleTheme = (theme)=>{
+    return titleThemeArray.indexOf(theme)
+}
+
 const config = {
 state:{
     appbarStatus: MINI,
-    appbarTitle: "Explore"
+    appbarTitle: "Explore",
+    appbarTitleTheme: LIGHT,
 },
 getters:{
     getAppbarStatusIndex(state){
         return getIndexByStatus(state.appbarStatus)
-    }
+    },
+    getAppbarTitleThemeIndex(state){
+        return getIndexByTitleTheme(state.appbarTitleTheme)
+    },
 },
 mutations:{
-    changeAppbarStatus(state){
-        let curIndex = getIndexByStatus(state.appbarStatus)
-        state.appbarStatus = getStatusByIndex(curIndex+1)
+    setAppbarTitleThemeByIndex(state, index){
+        state.appbarTitleTheme = getTitleThemeByIndex(index)
+    },
+    setAppbarStatusByIndex(state, index){
+        state.appbarStatus = getStatusByIndex(index)
     },
     setAppbarTitle(state, title){
         state.appbarTitle = title

@@ -10,9 +10,9 @@
 
 <script>
 import format from './../util/format'
-import { duration, padding } from './../mix'
+import { duration, padding, color } from './../mix'
 export default{
-    mixins: [ duration(), padding() ],
+    mixins: [ duration(), padding(), color('bgColor', 'transparent') ],
     name: 'ScrollLayout',
     props: {
         showThumb:      { type: Boolean, default: false },
@@ -34,6 +34,7 @@ export default{
                 ...this.thumbStyle,
                 ...this.durationStl,
                 ...this.paddingStl,
+                ...this.bgColorStl,
             }
         },
         directionClass(){
@@ -63,6 +64,7 @@ export default{
     $thumbRadius: var(--thumbRadius);  
     $padding: var(--padding);
     $duration: var(--duration);
+    $bgColor: var(--bgColor);
 
 
     box-sizing: border-box;
@@ -70,7 +72,7 @@ export default{
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: transparent;
+    background-color: $bgColor;
     
     -webkit-user-drag: none;
     pointer-events: auto;

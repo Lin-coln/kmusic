@@ -16,7 +16,7 @@
 
     <drawerbar />
     <!-- zindex: 1;   l: 95 -->
-    <bottombar />
+    <!-- <bottombar /> -->
     <!-- zindex: 4 6; l: 100 -->
 
   </div>
@@ -68,7 +68,6 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
 
   backdrop-filter: blur(10px);
 }

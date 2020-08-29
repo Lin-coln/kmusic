@@ -1,14 +1,18 @@
 <template>
-    <div class="empty-root" :style="style">
-        <div style="font-size:140%;">
-            <i :class="`fas fa-${icon} fa-1x fa-fw`"></i>
+    <layout>
+        <div class="empty-root" :style="style">
+            <div style="font-size:140%;">
+                <i :class="`fas fa-${icon} fa-1x fa-fw`"></i>
+            </div>
+            {{text}}
         </div>
-        {{text}}
-    </div>
+    </layout>
 </template>
 
 <script>
+import layout from './fixcontainer'
 export default {
+    components: { layout },
     computed:{
         text(){
             return '404 Not Found'
@@ -24,7 +28,7 @@ export default {
                 'background-color': this.color,
             }
         }
-    }
+    },
 }
 </script>
 
@@ -32,14 +36,13 @@ export default {
 .empty-root{
     width: 100%;
     height: 100%;
+    // box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    // box-shadow: 0 0 10px rgba(0,0,0,0.2);
-
     font-size: 5em;
     font-weight: bold;
-    // background-image: url(./../../assets/5.jpg);
+    // background-image: url(./../../assets/2.jpg);
 }
 </style>

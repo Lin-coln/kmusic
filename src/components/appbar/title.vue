@@ -7,17 +7,48 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+    props:{
+        normalHeight: String,
+        titleHeight: String,
+        ctnPadding: String,
+        navbtnWidth: String,
+        searchbarWidth: String,
+        minTitleWidth: String,
+    },
+    data(){
+        return {
+            titleColorTheme: ['black', 'white'],
+            fontSize: ['4em','2.4em'],
+            paddingLeft: '32px',
+        }
+    },
     computed:{
-        ...mapGetters(['getAppbarStatusIndex']),
+        height(){
+            return [this.titleHeight, this.normalHeight]
+        },
+
+        ...mapGetters(['getAppbarStatusIndex', 'getAppbarTitleThemeIndex']),
 
         style(){
             var index = this.getAppbarStatusIndex
             
             return {
-                width: ['50vh', '200px'][index],
-                height: ['80px','68px'][index],
-                fontSize: ['4em','2.4em'][index],
-                left: [`${32}px`, `${16+120+8}px`][index],
+                minWidth: this.minTitleWidth,
+                width: [
+                    `calc(100% - 2 * ${this.paddingLeft})`, 
+                    `calc((100% - ${this.searchbarWidth}) / 2 - ${this.navbtnWidth} - 4 * ${this.ctnPadding})`
+                ][index],
+                height:     this.height[index],
+                lineHeight: this.height[index],
+                fontSize:   this.fontSize[index],
+                left: [
+                    this.paddingLeft, 
+                    `calc(3 * ${this.ctnPadding} + ${this.navbtnWidth})`
+                ][index],
+                top: [`${this.normalHeight}`, '0px'][index],
+                color: [
+                        this.titleColorTheme[this.getAppbarTitleThemeIndex]
+                    , 'black'][index],
             }
         },
     }
@@ -29,14 +60,12 @@ export default {
     transition: all 300ms ease-in-out;
 
     // background-color: rgba(255, 0, 0, 0.2);
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     position: absolute;
-    bottom: 0;
-
     font-weight: bold;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 </style>

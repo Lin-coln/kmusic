@@ -2,9 +2,7 @@
     <FlexLayout :length='$store.state.drawerbarWidth' status>
         <OverlapLayout :zIndex='2'>
             <div class="pagecontainer-root">
-                <div class="pagecontainer-container">
-                    <trans/>
-                </div>
+                <trans/>
             </div>
         </OverlapLayout>
     </FlexLayout>
@@ -20,17 +18,12 @@ export default {
 
 <style lang="scss" scoped>
 .pagecontainer-root{
+    pointer-events: auto;
     width: 100%;
     height: 100%;
-    padding: 0 0 68px 0;
-    box-sizing: border-box;
-    transition: all 300ms ease-in-out;
-    & > .pagecontainer-container{
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+    position: relative;
 }
+
 
 
 </style>
